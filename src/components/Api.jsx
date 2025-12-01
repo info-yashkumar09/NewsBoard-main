@@ -1,9 +1,9 @@
-const API_KEY = "9735d2533690422d90fdead690656a1a";
-
 export const getData = async (query) => {
   try {
     console.log(`[API] Fetching news for query: "${query}"`);
-    const url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`;
+    
+    // Use backend proxy endpoint
+    const url = `/api/news?query=${encodeURIComponent(query)}`;
     console.log(`[API] URL: ${url}`);
 
     const response = await fetch(url);
