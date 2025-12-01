@@ -8,20 +8,18 @@ const Contact = () => {
 				<p className="mb-6 text-slate-600">
 					We'd love to hear from you. Send us a message using the form below ⬇️
 				</p>
-				<form onSubmit={handleSubmit} className="space-y-4">
+				<form className="space-y-4">
 					<div>
 						<label className="block text-sm font-medium text-slate-700">Name</label>
 						<input
-								name="name"
-								className="mt-1 block w-full outline-none rounded-md border border-slate-300 px-3 py-2"
-								type="text"
-								placeholder="Your name"
+							className="mt-1 block w-full outline-none rounded-md border border-slate-300 px-3 py-2"
+							type="text"
+							placeholder="Your name"
 						/>
 					</div>
 					<div>
 						<label className="block text-sm font-medium text-slate-700">Email</label>
 						<input
-							name="email"
 							className="mt-1 block w-full outline-none rounded-md border border-slate-300 px-3 py-2"
 							type="email"
 							placeholder="you@example.com"
@@ -30,7 +28,6 @@ const Contact = () => {
 					<div>
 						<label className="block text-sm font-medium text-slate-700">Message</label>
 						<textarea
-							name="message"
 							className="mt-1 block w-full outline-none rounded-md border border-slate-300 px-3 py-2 h-32"
 							placeholder="How can we help?"
 						/>
