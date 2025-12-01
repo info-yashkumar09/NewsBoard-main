@@ -25,10 +25,10 @@ const Contact = () => {
 		setSubmitted(false);
 
 		try {
-			// Replace with your Google Apps Script deployment URL
-			const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/d/AKfycbzFTsNAzxyy0imKgUKtTnc_E_LjYYUuSj6HvEU7y-14Md9YmpKFmpoSdQOl0WTVj3qSCg/usercoderun";
+			console.log("[Contact] Submitting form data...");
 
-			const response = await fetch(GOOGLE_SCRIPT_URL, {
+			// Use backend proxy instead of calling Google Sheets directly
+			const response = await fetch("/api/contact", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json"
@@ -41,8 +41,10 @@ const Contact = () => {
 				})
 			});
 
+			const data = await response.json();
+
 			if (!response.ok) {
-				throw new Error("Failed to send message");
+				throw new Error(data.error || "Failed to send message");
 			}
 
 			setSubmitted(true);
