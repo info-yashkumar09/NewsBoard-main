@@ -13,18 +13,23 @@ function Feed({ searchQuery }) {
 
   useEffect(() => {
     if (searchQuery) {
+      console.log(`[Feed] Fetching articles for: "${searchQuery}"`);
       setLoading(true);
       setError(null);
       getData(searchQuery)
         .then((res) => {
+          console.log(`[Feed] Got ${res.length} articles`);
           setArticles(res || []);
           setLoading(false);
           setCurrentPage(1); // reset to first page on new results
         })
         .catch((err) => {
+          console.error(`[Feed] Error fetching:`, err);
           setError(err.message || "Failed to fetch news. Please try again.");
           setLoading(false);
         });
+    } else {
+      console.log(`[Feed] No search query provided`);
     }
   }, [searchQuery]);
 
