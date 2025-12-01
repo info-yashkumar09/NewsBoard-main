@@ -11,7 +11,7 @@ const Footer = () => {
 				<div className="flex items-center gap-4">
 					<Link className="text-sm text-slate-600 hover:text-blue-600" to="/about">About</Link>
 					<Link className="text-sm text-slate-600 hover:text-blue-600" to="/contact">Contact</Link>
-					<a className="text-sm text-slate-600 hover:text-blue-600" href="https://github.com/info-yashkumar09" target="_blank" rel="noreferrer">GitHub</a>
+					<a className="text-sm text-slate-600 hover:text-blue-600" href="https://github.com/info-yashkumar09/NewsBoard-main" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</div>
 		</footer>
