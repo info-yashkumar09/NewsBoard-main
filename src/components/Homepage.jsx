@@ -7,7 +7,7 @@ const Homepage = ({ search, setSearch }) => {
 
   return (
     <div className="bg-slate-50 min-h-screen font-sans text-slate-800">
-      <Topics setSearch={setSearch} />
+      <Topics setSearch={setSearch} currentSearch={search} />
       <Feed searchQuery={search} newsData={newsData} setNewsData={setNewsData} />
     </div>
   );
