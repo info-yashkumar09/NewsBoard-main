@@ -1,4 +1,7 @@
 import React from "react";
+import udayProfile from "../assets/udayprofile.jpg";
+import yashProfile from "../assets/797.png";
+import sumitProfile from "../assets/sumitprofile.jpg";
 
 const About = () => {
 	return (
@@ -41,10 +44,10 @@ const About = () => {
 
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
 						<div className="p-4 border border-gray-300 shadow-lg rounded-lg bg-white justify-items-center">
-							<img className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-red-900 shadow mb-3" src="/src/assets/udayprofile.jpg" alt="" />
+							<img className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-red-900 shadow mb-3" src={udayProfile} alt="Uday Pratap Raghav" />
 							<h3 className=" text-xl font-bold">Uday Pratap Raghav</h3>
 							<p className="text-md font-bold text-[#155DFC]">Backend & Integration</p>
-							<p className="text-sm text-slate-600 mb-7">Email: <a href="mailto:alice@example.com">raghavudaypratap7@gmail.com</a></p>
+							<p className="text-sm text-slate-600 mb-7">Email: <a href="mailto:raghavudaypratap7@gmail.com">raghavudaypratap7@gmail.com</a></p>
 							<p><span className="font-bold">Course: </span> <span className="text-gray-600">BCA</span></p>
 							<p><span className="font-bold">Year: </span> <span className="text-gray-600">3rd Year</span></p>
 							<p><span className="font-bold">Semester: </span> <span className="text-gray-600">5th Sem</span></p>
@@ -52,10 +55,10 @@ const About = () => {
 						</div>
 
 						<div className="p-4 border border-gray-300 shadow-lg rounded-lg bg-white justify-items-center">
-							<img className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-red-900 shadow mb-3" src="/src/assets/797.png" alt="" />
+							<img className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-red-900 shadow mb-3" src={yashProfile} alt="Yash Kumar" />
 							<h3 className=" text-xl font-bold">Yash Kumar</h3>
 							<p className="text-md font-bold text-[#155DFC]">Frontend Developer</p>
-							<p className="text-sm text-slate-600 mb-7">Email: <a href="mailto:bob@example.com">info.yashkumar.09@gamil.com</a></p>
+							<p className="text-sm text-slate-600 mb-7">Email: <a href="mailto:info.yashkumar.09@gamil.com">info.yashkumar.09@gamil.com</a></p>
 							<p><span className="font-bold">Course: </span> <span className="text-gray-600">BCA</span></p>
 							<p><span className="font-bold">Year: </span> <span className="text-gray-600">3rd Year</span></p>
 							<p><span className="font-bold">Semester: </span> <span className="text-gray-600">5th Sem</span></p>
@@ -63,10 +66,10 @@ const About = () => {
 						</div>
 
 						<div className="p-4 border border-gray-300 shadow-lg rounded-lg bg-white justify-items-center">
-							<img className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-red-900 shadow mb-3" src="/src/assets/sumitprofile.jpg" alt="" />
+							<img className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-red-900 shadow mb-3" src={sumitProfile} alt="Sumit Pratap Singh" />
 							<h3 className=" text-xl font-bold">Sumit Pratap Singh</h3>
 							<p className="text-md font-bold text-[#155DFC]">UI/UX Designer</p>
-							<p className="text-sm text-slate-600 mb-7">Email: <a href="mailto:carol@example.com">sumitpartapsingh2005@gmail.com</a></p>
+							<p className="text-sm text-slate-600 mb-7">Email: <a href="mailto:sumitpartapsingh2005@gmail.com">sumitpartapsingh2005@gmail.com</a></p>
 							<p><span className="font-bold">Course: </span> <span className="text-gray-600">BCA</span></p>
 							<p><span className="font-bold">Year: </span> <span className="text-gray-600">3rd Year</span></p>
 							<p><span className="font-bold">Semester: </span> <span className="text-gray-600">5th Sem</span></p>
