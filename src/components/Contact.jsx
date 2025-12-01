@@ -5,18 +5,35 @@ const Contact = () => {
 	// https://script.google.com/macros/s/AKfycbzFTsNAzxyy0imKgUKtTnc_E_LjYYUuSj6HvEU7y-14Md9YmpKFmpoSdQOl0WTVj3qSCg/exec
 
 	// inside src/components/Contact.jsx - update handleSubmit and inputs
-const handleSubmit = (e) => {
-  e.preventDefault()
-  const url = "/api/contact" // use your Vercel proxy; or keep the Apps Script URL if you prefer
-  const body = `name=${encodeURIComponent(e.target.name.value)}&email=${encodeURIComponent(e.target.email.value)}&message=${encodeURIComponent(e.target.message.value)}`
-  fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body
-  })
-  .then(res => res.json().catch(()=>({ok:true})))
-  .then(() => { /* show success UI */ })
-  .catch(error => console.log(error))
+const handleSubmit = async (e) => {
+	e.preventDefault();
+	const url = "/api/contact";
+	const body = `name=${encodeURIComponent(e.target.name.value)}&email=${encodeURIComponent(e.target.email.value)}&message=${encodeURIComponent(e.target.message.value)}`;
+
+	try {
+		const resp = await fetch(url, {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body,
+		});
+
+		const text = await resp.text();
+		// Try parse JSON
+		let parsed;
+		try { parsed = JSON.parse(text); } catch (err) { parsed = text; }
+
+		console.log('[Contact] /api/contact response status', resp.status, 'body:', parsed);
+
+		if (!resp.ok) {
+			alert('Contact submit failed — see console for details. Server response: ' + (typeof parsed === 'string' ? parsed : JSON.stringify(parsed)));
+			return;
+		}
+
+		alert('Message sent successfully.');
+	} catch (err) {
+		console.error('[Contact] Fetch error', err);
+		alert('Network error when sending message — check console and server logs.');
+	}
 }
 // ...
 // <input ... name="name" ... />
