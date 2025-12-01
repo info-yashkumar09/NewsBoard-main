@@ -4,15 +4,24 @@ const Contact = () => {
 
 	// https://script.google.com/macros/s/AKfycbzFTsNAzxyy0imKgUKtTnc_E_LjYYUuSj6HvEU7y-14Md9YmpKFmpoSdQOl0WTVj3qSCg/exec
 
-	const handleSubmit = (e) => {
-		e.preventDefault()
-		const url = "https://script.google.com/macros/s/AKfycbzFTsNAzxyy0imKgUKtTnc_E_LjYYUuSj6HvEU7y-14Md9YmpKFmpoSdQOl0WTVj3qSCg/exec"
-		fetch(url,{
-			method: "POST",
-			headers: {"Content-Type": "application/x-www-form-urlencoded" },
-			body: (`Name=${e.target.name.value}&Email=${e.target.email.value}&Message=${e.target.message.value}`)
-		}).then(res=>res.text()).catch(error=>console.log(error))
-	}
+	// inside src/components/Contact.jsx - update handleSubmit and inputs
+const handleSubmit = (e) => {
+  e.preventDefault()
+  const url = "/api/contact" // use your Vercel proxy; or keep the Apps Script URL if you prefer
+  const body = `name=${encodeURIComponent(e.target.name.value)}&email=${encodeURIComponent(e.target.email.value)}&message=${encodeURIComponent(e.target.message.value)}`
+  fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body
+  })
+  .then(res => res.json().catch(()=>({ok:true})))
+  .then(() => { /* show success UI */ })
+  .catch(error => console.log(error))
+}
+// ...
+// <input ... name="name" ... />
+// <input ... name="email" ... />
+// <textarea ... name="message" ... />
 
 	return (
 		<div className=" min-h-screen font-sans text-slate-800">
