@@ -27,7 +27,9 @@ export default async function handler(req, res) {
   }
 
   try {
-    console.log(`[Contact Proxy] Sending to Google Sheets: ${name}, ${email}`);
+    console.log(`[Contact Proxy] Received form submission from ${email}`);
+    console.log(`[Contact Proxy] Data:`, { name, email, message, timestamp });
+    console.log(`[Contact Proxy] Google Script URL: ${GOOGLE_SCRIPT_URL}`);
 
     // Use form data instead of JSON for Google Apps Script
     const formData = new URLSearchParams();
@@ -36,13 +38,15 @@ export default async function handler(req, res) {
     formData.append('email', email);
     formData.append('message', message);
 
+    console.log(`[Contact Proxy] Sending form data:`, formData.toString());
+
     const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: "POST",
       body: formData,
       mode: 'no-cors' // Google Apps Script doesn't support CORS
     });
 
-    console.log(`[Contact Proxy] Request sent to Google Sheets`);
+    console.log(`[Contact Proxy] Request sent to Google Sheets, response type: ${response.type}`);
 
     // With no-cors, we can't read the response, so just assume success
     res.status(200).json({ success: true, message: 'Message saved to Google Sheets' });
