@@ -1,6 +1,19 @@
 import React from "react";
 
 const Contact = () => {
+
+	// https://script.google.com/macros/s/AKfycbzFTsNAzxyy0imKgUKtTnc_E_LjYYUuSj6HvEU7y-14Md9YmpKFmpoSdQOl0WTVj3qSCg/exec
+
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		const url = "https://script.google.com/macros/s/AKfycbzFTsNAzxyy0imKgUKtTnc_E_LjYYUuSj6HvEU7y-14Md9YmpKFmpoSdQOl0WTVj3qSCg/exec"
+		fetch(url,{
+			method: "POST",
+			headers: {"Content-Type": "application/x-www-form-urlencoded" },
+			body: (`Name=${e.target.name.value}&Email=${e.target.email.value}&Message=${e.target.message.value}`)
+		}).then(res=>res.text()).catch(error=>console.log(error))
+	}
+
 	return (
 		<div className=" min-h-screen font-sans text-slate-800">
 			<div className="max-w-3xl mx-auto p-6">
@@ -8,7 +21,7 @@ const Contact = () => {
 				<p className="mb-6 text-slate-600">
 					We'd love to hear from you. Send us a message using the form below ⬇️
 				</p>
-				<form className="space-y-4">
+				<form onSubmit={handleSubmit} className="space-y-4">
 					<div>
 						<label className="block text-sm font-medium text-slate-700">Name</label>
 						<input
