@@ -34,14 +34,16 @@ const handleSubmit = (e) => {
 					<div>
 						<label className="block text-sm font-medium text-slate-700">Name</label>
 						<input
-							className="mt-1 block w-full outline-none rounded-md border border-slate-300 px-3 py-2"
-							type="text"
-							placeholder="Your name"
+								name="name"
+								className="mt-1 block w-full outline-none rounded-md border border-slate-300 px-3 py-2"
+								type="text"
+								placeholder="Your name"
 						/>
 					</div>
 					<div>
 						<label className="block text-sm font-medium text-slate-700">Email</label>
 						<input
+							name="email"
 							className="mt-1 block w-full outline-none rounded-md border border-slate-300 px-3 py-2"
 							type="email"
 							placeholder="you@example.com"
@@ -50,6 +52,7 @@ const handleSubmit = (e) => {
 					<div>
 						<label className="block text-sm font-medium text-slate-700">Message</label>
 						<textarea
+							name="message"
 							className="mt-1 block w-full outline-none rounded-md border border-slate-300 px-3 py-2 h-32"
 							placeholder="How can we help?"
 						/>
