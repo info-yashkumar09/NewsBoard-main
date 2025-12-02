@@ -36,11 +36,6 @@ const About = () => {
 
 				<section className="mb-8">
 					<h2 className="text-3xl font-bold mb-15 mt-15 justify-self-center">Developer info</h2>
-					<p className="mb-10 text-slate-600">
-						This project was created by a small team of three developers. Replace
-						the placeholder entries below with the real names and contact
-						information as needed.
-					</p>
 
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
 						<div className="p-4 border border-gray-300 shadow-lg rounded-lg bg-white justify-items-center">
